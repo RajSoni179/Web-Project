@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Krishiv Sport</title>
+
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+
+<!-- Welcome -->
+
+<div id="welcome" style="display:none;">
+    <div class="sports-bg">
+        <span>🏏</span>
+        <span>⚽</span>
+        <span>🏀</span>
+        <span>🎾</span>
+        <span>🏸</span>
+    </div>
+
+    <div class="welcome-content">
+        <h1>Krishiv Sport</h1>
+        <p>Play with Passion</p>
+    </div>
+</div>
+
+
+<!-- Login -->
+
+<div id="loginBox" style="display:none;">
+
+<h2>Login</h2>
+
+<input type="text" id="name" placeholder="Enter Name"><br>
+
+<input type="text" id="mobile" placeholder="Enter Mobile Number"><br>
+
+<input type="email" id="email" placeholder="Enter Email"><br>
+
+<div class="remember-box">
+    <input type="checkbox" id="rememberMe">
+    <label for="rememberMe">Remember Me
+    </label>
+</div>
+
+<button onclick="sendOTP()">Send OTP</button><br>
+
+<input type="text" id="otp" placeholder="Enter OTP"><br>
+
+<button onclick="verifyOTP()">Login</button>
+
+</div>
+
+
+
+<!-- Main Website -->
+
+<div id="mainSite" style="display:none;">
+ <div id="homePage">
+
+<header>
+<h2>Krishiv Sport</h2>
+
+ <div class="nav-user" id="profileIcon" onclick="showProfile()">
+      <i class='bx bx-user' title="Profile"></i>
+  </div>
+</header>
+
+
+
+<div id="profileBox">
+    <div class="profile-top">
+        <div class="profile-avatar">
+            <i class='bx bx-user'></i>
+        </div>
+        <div class="profile-heading">
+            <h3>My Profile</h3>
+            <span>Krishiv Sport User</span>
+        </div>
+    </div>
+
+    <div class="profile-info">
+        <div class="info-row">
+            <i class='bx bx-user-circle'></i>
+            <p id="pname"></p>
+        </div>
+
+        <div class="info-row">
+            <i class='bx bx-phone'></i>
+            <p id="pmobile"></p>
+        </div>
+
+        <div class="info-row">
+            <i class='bx bx-envelope'></i>
+            <p id="pemail"></p>
+        </div>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">
+        <i class='bx bx-log-out'></i> Logout
+    </button>
+</div>
+
+
+
+<!-- Slider -->
+<div class="slide-box">
+<div class="slider">
+
+<img src="sliderbat.png" class="slide active">
+
+<img src="sliderfootball.jpg" class="slide">
+
+<img src="Sliderbadminton.jpg" class="slide">
+
+<img src="sliderbasketball.jpg" class="slide">
+
+<img src="slidertennis.jpg" class="slide">
+
+<div class="dots">
+    <span class="dot active" onclick="currentslide(i)"></span>
+    <span class="dot" onclick="currentslide(i)"></span>
+    <span class="dot" onclick="currentslide(i)"></span>
+    <span class="dot" onclick="currentslide(i)"></span>
+    <span class="dot" onclick="currentslide(i)"></span>
+</div>
+</div>
+</div>
+
+<!-- Search -->
+
+<div class="search">
+    <i class='bx bx-search search-icon'></i>
+    <input type="text" id="searchInput" placeholder="Search sports items">
+    <div id="suggestionsBox" class="suggestions"></div>
+</div>
+
+
+<!-- Categories -->
+<h2 class="title">Sports Categories</h2>
+
+<div id="categories" class="categories grid">
+
+    <div class="category-card" onclick="showCricket()">
+        <img src="categorycricket.webp" alt="Cricket">
+        <p>Cricket</p>
+    </div>
+
+    <div class="category-card" onclick="showFootball()"> 
+        <img src="categoryfootball.jpg" alt="Football">
+        <p>Football</p>
+    </div>
+
+    <div class="category-card" onclick="showBadminton()">
+        <img src="categorybadminton.jpg" alt="Badminton">
+        <p>Badminton</p>
+    </div>
+
+    <div class="category-card" onclick="showBasketball()">
+        <img src="categorybasketba;;.jpg" alt="Basketball">
+        <p>Basketball</p>
+    </div>
+
+    <div class="category-card" onclick="showTennis()">
+        <img src="categorytennis.jpg" alt="Tennis">
+        <p>Tennis</p>
+    </div>
+
+</div>
+
+
+
+<!-- Cricket -->
+
+<div id="cricketSection" style="display: none">
+
+<h2 class="title">Cricket Items</h2>
+
+<div id="cricketItems" class="grid" style="display: none">
+
+<div class="card" onclick="openBat()">
+<img src="cricketitemsbat.webp">
+<p>Bat</p>
+</div>
+<div class="card" onclick="openball()">
+<img src="cricketitemsball.webp">
+<p>Ball</p>
+</div>
+<div class="card" onclick="opengloves()">
+<img src="cricketitemsgloves.webp">
+<p>Gloves</p>
+</div>
+<div class="card" onclick="openHelmet()">
+<img src="cricketitemshelmet.avif">
+<p>Helmet</p>
+</div>
+<div class="card" onclick="openStumps()">
+<img src="cricketitemsstump.jpg">
+<p>Stumps</p>
+</div>
+<div class="card" onclick="openCricketkit()">
+<img src="cricketitemskit.jpg">
+<p>Cricket Kit</p>
+</div>
+
+</div>
+</div>
+
+<!--Football-->
+
+<div id="footballSection" style="display: none">
+
+<h2 class="title">Football Items</h2>
+
+<div id="footballItems" class="grid" style="display: none">
+
+<div class="card" onclick="openFootballBall()">
+<img src="Footballsection.webp">
+<p>Football</p>
+</div>
+
+<div class="card" onclick="openFootballShoes()">
+<img src="shoesscetion.jpg">
+<p>Shoes</p>
+</div>
+
+<div class="card" onclick="openJersey()">
+<img src="jurseysection.webp">
+<p>Jersey</p>
+</div>
+
+<div class="card" onclick="openFootballGloves()">
+<img src="footballglovessection.avif">
+<p>Goalkeeper Gloves</p>
+</div>
+
+</div>
+</div>
+
+<!--Badminton-->
+
+<div id="badmintonSection" style="display:none">
+
+<h2 class="title">Badminton Items</h2>
+
+<div id="badmintonItems" class="grid" style="display:none">
+
+<div class="card" onclick="openRacket()">
+<img src="racket.jpg">
+<p>Racket</p>
+</div>
+
+<div class="card" onclick="openShuttle()">
+<img src="shuttlecok.webp">
+<p>Shuttle</p>
+</div>
+
+</div>
+</div>
+
+<!--BasketBall-->
+<div id="basketballSection" style="display:none">
+
+<h2 class="title">Basketball Items</h2>
+
+<div id="basketballItems" class="grid" style="display:none">
+
+<div class="card" onclick="openBasketballBall()">
+<img src="basketball.webp">
+<p>Basketball</p>
+</div>
+
+<div class="card" onclick="openBasketllShoes()">
+<img src="basketballshoes.webp">
+<p>Shoes</p>
+</div>
+
+<div class="card" onclick="openBasketballJursey()">
+<img src="basketballjursey.webp">
+<p>Jersey</p>
+</div>
+
+</div>
+</div>
+
+<!-- Tennis Section -->
+<div id="tennisSection" style="display:none">
+
+<h2 class="title">Tennis Items</h2>
+
+<div id="tennisItems" class="grid" style="display:none">
+
+<div class="card" onclick="openTennisRacket()">
+<img src="tennisracket.jpg">
+<p>Racket</p>
+</div>
+
+<div class="card" onclick="openTennisBall()">
+<img src="tennisball.webp">
+<p>Ball</p>
+</div>
+
+</div>
+</div>
+
+<!-- Bat Companies -->
+
+<div id="batSection" style="display:none;">
+
+<h2 class="title">Bat Companies</h2>
+
+<div id="batCompanies" class="grid">
+
+<div class="card" onclick="showBats('MRF')">
+<img src="MRFlogo.png">
+<p>MRF</p>
+</div>
+
+<div class="card" onclick="showBats('CEAT')">
+<img src="CEAT logo.svg">
+<p>CEAT</p>
+</div>
+
+<div class="card" onclick="showBats('SG')">
+<img src="SG logo.png">
+<p>SG</p>
+</div>
+
+<div class="card" onclick="showBats('REEBOK')">
+<img src="reebok logo.png">
+<p>REEBOK</p>
+</div>
+
+<div class="card" onclick="showBats('KOOKABURRA')">
+<img src="Kookaburra logo.png">
+<p>KOOKABURRA</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Ball Companies -->
+
+<div id="ballSection" style="display:none;">
+
+<h2 class="title">Ball Companies</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showBalls('SG')">
+<img src="SG logo.png">
+<p>SG</p>
+</div>
+
+<div class="card" onclick="showBalls('KOOKABURRA')">
+<img src="Kookaburra logo.png">
+<p>Kookaburra</p>
+</div>
+
+<div class="card" onclick="showBalls('SS')">
+<img src="SS logo.png">
+<p>SS</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Gloves Type -->
+
+<div id="glovesTypeSection" style="display:none;">
+
+<h2 class="title">Gloves Type</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showBattingCompanies()">
+<img src="battinggloves.jpg">
+<p>Batting Gloves</p>
+</div>
+
+<div class="card" onclick="showKeeperCompanies()">
+<img src="Keepergloves.webp">
+<p>Wicket Keeper Gloves</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Gloves Companies -->
+
+<div id="battingCompanies" style="display:none;">
+
+<h2 class="title">Batting Gloves Companies</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showGloves('batting','MRF')">
+<img src="MRFlogo.png">
+<p>MRF</p>
+</div>
+
+<div class="card" onclick="showGloves('batting','SG')">
+<img src="SG logo.png">
+<p>SG</p>
+</div>
+
+<div class="card" onclick="showGloves('batting','SS')">
+<img src="SS logo.png">
+<p>SS</p>
+</div>
+
+<div class="card" onclick="showGloves('batting','DSC')">
+<img src="DSClogo.jpg">
+<p>DSC</p>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="keeperCompanies" style="display:none;">
+
+<h2 class="title">Wicket Keeper Gloves Companies</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showGloves('keeper','SG')">
+<img src="SG logo.png">
+<p>SG</p>
+</div>
+
+<div class="card" onclick="showGloves('keeper','SS')">
+<img src="SS logo.png">
+<p>SS</p>
+</div>
+
+<div class="card" onclick="showGloves('keeper','DSC')">
+<img src="DSClogo.jpg">
+<p>DSC</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Helmet Companies -->
+
+<div id="helmetCompanies" style="display:none;">
+
+<h2 class="title">Helmet Companies</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showHelmet('MRF')">
+<img src="MRFlogo.png">
+<p>MRF</p>
+</div>
+
+<div class="card" onclick="showHelmet('SG')">
+<img src="SG logo.png">
+<p>SG</p>
+</div>
+
+<div class="card" onclick="showHelmet('SS')">
+<img src="SS logo.png">
+<p>SS</p>
+</div>
+
+<div class="card" onclick="showHelmet('DSC')">
+<img src="DSClogo.jpg">
+<p>DSC</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Stumps Companies -->
+
+<div id="stumpsCompanies" style="display:none;">
+
+<h2 class="title">Stumps Companies</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showStumps('SG')">
+<img src="SG logo.png">
+<p>SG</p>
+</div>
+
+<div class="card" onclick="showStumps('SS')">
+<img src="SS logo.png">
+<p>SS</p>
+</div>
+
+<div class="card" onclick="showStumps('DSC')">
+<img src="DSClogo.jpg">
+<p>DSC</p>
+</div>
+
+</div>
+</div>
+
+
+<!-- Cricket Kit Companies -->
+
+<div id="kitCompanies" style="display:none;">
+
+<h2 class="title">Cricket Kit Companies</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showKit('SG')">
+<img src="SG logo.png">
+<p>SG</p>
+</div>
+
+<div class="card" onclick="showKit('SS')">
+<img src="SS logo.png">
+<p>SS</p>
+</div>
+
+<div class="card" onclick="showKit('MRF')">
+<img src="MRFlogo.png">
+<p>MRF</p>
+</div>
+
+<div class="card" onclick="showKit('DSC')">
+<img src="DSClogo.jpg">
+<p>DSC</p>
+</div>
+
+</div>
+</div>
+
+<!-- Football Companies -->
+
+<div id="footballCompanySection" style="display:none;">
+
+<h2 class="title">Football Brands</h2>
+
+<div id="footballCompanies" class="grid">
+
+<div class="card" onclick="showFootballProducts('NIKE')">
+<img src="Nikelogo.png">
+<p>NIKE</p>
+</div>
+
+<div class="card" onclick="showFootballProducts('ADIDAS')">
+<img src="Adidas logo.jpg">
+<p>ADIDAS</p>
+</div>
+
+<div class="card" onclick="showFootballProducts('PUMA')">
+<img src="pumalogo.avif">
+<p>PUMA</p>
+</div>
+
+<div class="card" onclick="showFootballProducts('NIVIA')">
+<img src="nivialogo.jpg">
+<p>NIVIA</p>
+</div>
+
+</div>
+</div>
+
+<!-- Football Shoes Brands -->
+
+<div id="footballShoesSection" style="display:none;">
+
+<h2 class="title">Football Shoes Brands</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showFootballShoes('NIVIA')">
+<img src="nivialogo.jpg">
+<p>NIVIA</p>
+</div>   
+
+<div class="card" onclick="showFootballShoes('ADIDAS')">
+<img src="Adidas logo.jpg">
+<p>ADIDAS</p>
+</div>
+
+<div class="card" onclick="showFootballShoes('PUMA')">
+<img src="pumalogo.avif">
+<p>PUMA</p>
+</div>
+
+<div class="card" onclick="showFootballShoes('NIKE')">
+<img src="Nikelogo.png">
+<p>NIKE</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Football Jersey Teams -->
+
+<div id="jerseySection" style="display:none;">
+
+<h2 class="title">Football Jerseys</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showFJerseys('BARCELONA')">
+<img src="barcelonalogo.jpg">
+<p>Barcelona</p>
+</div>
+
+<div class="card" onclick="showFJerseys('REALMADRID')">
+<img src="realmadridlog.webp">
+<p>Real Madrid</p>
+</div>
+
+<div class="card" onclick="showFJerseys('MANCITY')">
+<img src="manchesterlogo.png">
+<p>Man City</p>
+</div>
+
+<div class="card" onclick="showFJerseys('PSG')">
+<img src="parislogo.png">
+<p>PSG</p>
+</div>
+
+</div>
+</div>
+
+<!-- Goalkeeper Gloves Brands -->
+
+<div id="footballGlovesSection" style="display:none;">
+
+<h2 class="title">Goalkeeper Gloves Brands</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showFootballGloves('NIKE')">
+<img src="Nikelogo.png">
+<p>NIKE</p>
+</div>
+
+<div class="card" onclick="showFootballGloves('ADIDAS')">
+<img src="Adidas logo.jpg">
+<p>ADIDAS</p>
+</div>
+
+<div class="card" onclick="showFootballGloves('PUMA')">
+<img src="pumalogo.avif">
+<p>PUMA</p>
+</div>
+
+<div class="card" onclick="showFootballGloves('NIVIA')">
+<img src="nivialogo.jpg">
+<p>NIVIA</p>
+</div>
+
+</div>
+</div>
+
+<!--Badminton Rackets-->
+
+<div id="racketSection" style="display:none">
+
+<h2 class="title">Racket Brands</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showRackets('YONEX')">
+<img src="Yonexlogo.png">
+<p>YONEX</p>
+</div>
+
+<div class="card" onclick="showRackets('LI-NING')">
+<img src="lininglogo.jpg">
+<p>LI-NING</p>
+</div>
+
+<div class="card" onclick="showRackets('VICTOR')">
+<img src="victorlogo.png">
+<p>VICTOR</p>
+</div>
+
+<div class="card" onclick="showRackets('COSCO')">
+<img src="coscologo.webp">
+<p>COSCO</p>
+</div>
+
+</div>
+</div>
+
+<!--Badminton shuttle-->
+
+<div id="shuttleSection" style="display:none">
+
+<h2 class="title">Shuttle Brands</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showShuttles('YONEX')">
+<img src="Yonexlogo.png">
+<p>YONEX</p>
+</div>
+
+<div class="card" onclick="showShuttles('LI-NING')">
+<img src="lininglogo.jpg">
+<p>LI-NING</p>
+</div>
+
+<div class="card" onclick="showShuttles('COSCO')">
+<img src="coscologo.webp">
+<p>COSCO</p>
+</div>
+
+</div>
+</div>
+
+
+<!-- Basketball Brands -->
+
+<div id="basketballBallSection" style="display:none">
+
+<h2 class="title">Basketball Brands</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showBasketballs('SPALDING')">
+<img src="spaldinglogo.svg">
+<p>SPALDING</p>
+</div>
+
+<div class="card" onclick="showBasketballs('NIKE')">
+<img src="Nikelogo.png">
+<p>NIKE</p>
+</div>
+
+<div class="card" onclick="showBasketballs('WILSON')">
+<img src="wilsom.jpg">
+<p>WILSON</p>
+</div>
+
+</div>
+</div>
+
+<!-- Basketball Shoes-->
+
+<div id="basketballShoesSection" style="display:none">
+
+<h2 class="title">Basketball Shoes</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showBasketballShoes('NIKE')">
+<img src="Nikelogo.png">
+<p>NIKE</p>
+</div>
+
+<div class="card" onclick="showBasketballShoes('ADIDAS')">
+<img src="Adidas logo.jpg">
+<p>ADIDAS</p>
+</div>
+
+<div class="card" onclick="showBasketballShoes('PUMA')">
+<img src="pumalogo.avif">
+<p>PUMA</p>
+</div>
+
+</div>
+</div>
+
+<!-- Basketball Jersey Teams -->
+<div id="basketballJerseySection" style="display:none">
+
+<h2 class="title">Basketball Teams</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showBasketballJersey('LAKERS')">
+<img src="lakerslogo.jpg">
+<p>Lakers</p>
+</div>
+
+<div class="card" onclick="showBasketballJersey('BULLS')">
+<img src="bullslogo.png">
+<p>Bulls</p>
+</div>
+
+<div class="card" onclick="showBasketballJersey('WARRIORS')">
+<img src="warriorlogo.png">
+<p>Warriors</p>
+</div>
+
+</div>
+</div>
+
+<!--Tennis-->
+<div id="tennisRacketSection" style="display:none">
+
+<h2 class="title">Racket Brands</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showTennisRackets('WILSON')">
+<img src="wilsom.jpg">
+<p>WILSON</p>
+</div>
+
+<div class="card" onclick="showTennisRackets('HEAD')">
+<img src="headlogo.webp">
+<p>HEAD</p>
+</div>
+
+<div class="card" onclick="showTennisRackets('YONEX')">
+<img src="Yonexlogo.png">
+<p>YONEX</p>
+</div>
+
+</div>
+</div>
+
+<!-- Tennis Ball Brands -->
+<div id="tennisBallSection" style="display:none">
+
+<h2 class="title">Tennis Ball Brands</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showTennisBalls('WILSON')">
+<img src="wilsom.jpg">
+<p>WILSON</p>
+</div>
+
+<div class="card" onclick="showTennisBalls('YONEX')">
+<img src="Yonexlogo.png">
+<p>YONEX</p>
+</div>
+
+</div>
+</div>
+
+<!--All categories Production code-->
+
+<div id="productSection" style="display:none;">
+
+<h2 id="productTitle" class="title"></h2>
+
+<div id="productContainer" class="grid"></div>
+
+</div>
+
+
+<!-- About -->
+
+<div class="about">
+
+<h2>About Krishiv Sport</h2>
+
+<p>Owner : Raj Patadiya</p>
+<p>Mobile : 9081517907</p>
+<p>Email : krishivsport@gmail.com</p>
+<p>Address : Palace Road, Rajkot</p>
+
+</div>
+</div>
+
+   <div id="wishlistPage" style="display:none;">
+        <h2 class="title">My Wishlist</h2>
+        <div id="wishlistContainer" class="grid"></div>
+    </div>
+
+    <!-- Orders Page -->
+    <div id="ordersPage" style="display:none;">
+        <h2 class="title">My Orders</h2>
+        <div id="ordersContainer" class="grid"></div>
+    </div>
+
+    <!-- Cart Page -->
+    <div id="cartPage" style="display:none;">
+        <h2 class="title">My Cart</h2>
+        <div id="cartContainer" class="grid"></div>
+    </div>
+
+
+<nav class="navbar">
+
+    <div class="nav-item active-nav" id="navHome" onclick="goHome()">
+        <div class="nav-icon-box">
+            <i class='bx bx-home'></i>
+        </div>
+        <span>Home</span>
+    </div>
+
+    <div class="nav-item" id="navWishlist" onclick="showWishlist()">
+        <div class="nav-icon-box">
+            <i class='bx bx-heart'></i>
+            <span class="nav-badge" id="wishlistCount">0</span>
+        </div>
+        <span>Wishlist</span>
+    </div>
+
+    <div class="nav-item" id="navOrders" onclick="showOrders()">
+        <div class="nav-icon-box">
+            <i class='bx bx-box'></i>
+            <span class="nav-badge" id="ordersCount">0</span>
+        </div>
+        <span>Orders</span>
+    </div>
+
+    <div class="nav-item" id="navCart" onclick="showCart()">
+        <div class="nav-icon-box">
+            <i class='bx bx-shopping-bag'></i>
+            <span class="nav-badge" id="cartCount">0</span>
+        </div>
+        <span>Cart</span>
+    </div>
+
+</nav>
+
+<!-- Buy Modal -->
+<div id="buyModal" class="modal">
+
+  <div class="modal-content">
+    <h2 id="buyItemName"></h2>
+    <p id="buyPrice"></p>
+
+    <!-- Quantity -->
+    <div class="qty-box">
+      <button onclick="decreaseQty()">-</button>
+      <span id="qty">1</span>
+      <button onclick="increaseQty()">+</button>
+    </div>
+
+    <p>Total: ₹<span id="totalPrice"></span></p>
+
+    <button class="buy-confirm" onclick="confirmBuy()">Confirm Order</button>
+    <button class="close-btn" onclick="closeModal()">Cancel</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
